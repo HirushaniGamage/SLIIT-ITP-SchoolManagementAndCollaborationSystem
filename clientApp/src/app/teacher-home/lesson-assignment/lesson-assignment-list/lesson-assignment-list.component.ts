@@ -192,8 +192,8 @@ deleteLessonAssignment(row) {
         if(response.isSuccess)
         {
           this.toastr.success(response.message,"Success");
-        
-        this.getAll();
+
+       this.getAll();
         }
         else
         {
