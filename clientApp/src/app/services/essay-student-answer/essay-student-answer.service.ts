@@ -55,9 +55,14 @@ export class EssayStudentAnswerService {
               .set('questionId', questionId.toString())
               .set('studentId', studentId.toString())
       
-          });
+          });}
+          downloadStudentListReport(): Observable<any> {
+            return this.httpClient.get<any>
+            (environment.apiUrl +'EssayStudentAnswer/downloadStudentListReport');
+          }
+
         }
          
 
-  }​​​​​​​​
+ 
 

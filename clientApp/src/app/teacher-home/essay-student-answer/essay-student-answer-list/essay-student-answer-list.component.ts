@@ -9,6 +9,7 @@ import { DropDownModel } from 'src/app/models/common/drop-down.model';
 import { EssayStudentAnswerModel } from 'src/app/models/essay-student-answer/essay.student.answer.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BasicEssayStudentAnswerModel } from 'src/app/models/essay-student-answer/basic.essay.student.answer.model';
+import { HttpResponse } from '@angular/common/http';
 
 
 @Component({
@@ -306,7 +307,41 @@ deleteStudentEssayAnswet(row) {
     }
   });
 }
-  
+generateReport()
+{
+  this.spinner.show();
+
+  this.EssayStudentAnswerService.downloadStudentListReport().subscribe((response:HttpResponse<Blob>)=>{
+    /*if(response.type === HttpEventType.Response)
+    {
+      if(response.status == 204)
+      {
+        this.spinner.hide();
+      }
+      else
+      {
+        let contentDisposition = response.headers.get('content-disposition');
+        const objectUrl:string=URL.createObjectURL(response.body);
+        const a:HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
+
+        a.href = objectUrl;
+        a.download = this.parseFilenameFromContentDisposition(contentDisposition);
+        document.body.appendChild(a);
+        a.click();
+
+        document.body.removeChild(a);
+        URL.revokeObjectURL(objectUrl);
+       
+        this.spinner.hide();
+        
+      }
+    }*/
+  },error=>{
+      this.spinner.hide();
+      
+  });
+}
+
      
       addRecordSuccess() {
         this.toastr.success('SUCCESS', '');
