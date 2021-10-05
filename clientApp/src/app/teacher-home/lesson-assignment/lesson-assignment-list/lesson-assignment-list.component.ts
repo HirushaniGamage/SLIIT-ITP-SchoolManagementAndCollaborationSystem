@@ -220,7 +220,7 @@ deleteLessonAssignment(row) {
           {
             this.modalService.dismissAll();
             this.toastr.success(response.message,"Success");
-            this.getAll();
+            this.getLessonList();
           }
           else
           {

@@ -3,6 +3,7 @@ using SchoolManagement.Business.Interfaces.LessonData;
 using SchoolManagement.ViewModel;
 using SchoolManagement.ViewModel.Lesson;
 using SchoolManagement.WebService.Infrastructure.Services;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace SchoolManagement.WebService.Controllers
@@ -74,5 +75,16 @@ namespace SchoolManagement.WebService.Controllers
 
             return response;
         }
+
+        [HttpGet]
+        [RequestSizeLimit(long.MaxValue)]
+        [Route("downloadStudentListReport")]
+        public FileStreamResult downloadStudentListReport()
+        {
+            var response = essaystudentanswerService.downloadStudentListReport();
+
+            return File(new MemoryStream(response.FileData), "application/pdf", response.FileName);
+        }
+
     }
 }

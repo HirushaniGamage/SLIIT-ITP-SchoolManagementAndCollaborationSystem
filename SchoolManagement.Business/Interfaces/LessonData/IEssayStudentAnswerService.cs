@@ -23,6 +23,6 @@ namespace SchoolManagement.Business.Interfaces.LessonData
 
         PaginatedItemsViewModel<BasicEssayStudentAnswerViewModel> GetStudentEssayList(string searchText, int currentPage, int pageSize, int questionId, int studentId);
 
-       
+        DownloadFileModel downloadStudentListReport();
     }
 }

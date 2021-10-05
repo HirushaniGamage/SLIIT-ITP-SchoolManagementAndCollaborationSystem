@@ -241,7 +241,7 @@ saveEssayQuestionAnswer(){
         {
           this.modalService.dismissAll();
           this.toastr.success(response.message,"Success");
-          this.getAll();
+          this.getQuestionList();
         }
         else
         {
