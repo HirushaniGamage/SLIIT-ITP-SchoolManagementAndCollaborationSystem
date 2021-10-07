@@ -1,3 +1,4 @@
+import { LessonDetailModel } from './../../models/lesson/lesson.detail.model';
 import { environment } from 'src/environments/environment';
 import { DropDownModel } from './../../models/common/drop-down.model';
 import { LessonModel } from './../../models/lesson/lesson.model';
@@ -54,7 +55,7 @@ export class LessonService {
 
   saveLesson(vm :LessonModel): Observable <ResponseModel>{
     return this.httpClient
-      .post<ResponseModel>(environment.apiUrl + 'LessonDesign', vm);
+      .post<ResponseModel>(environment.apiUrl + 'LessonDesign/saveLesson', vm);
  
   }
 
