@@ -22,7 +22,7 @@
                     <div class="col-lg-3 p-0">
                       <div class="ngxTableHeader">
                         <div class="table-title">
-                          <h2><strong>Head Of Deparment</strong></h2>
+                          <h2><strong>Head Of Department</strong></h2>
                         </div>
                       </div>
                     </div>
@@ -48,8 +48,23 @@
                       </div>
                     </div>
                     </form>
-                      
                     
+                    <div class="row">
+                      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                          <label for="date"></label>
+                          <button
+                            class="btn btn-primary"
+                            style="margin-top: 30px"
+                            type="button"
+                            (click)="generateReport()"
+                          >
+                            Generate Report
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
 
                   </div>
                 </div>
@@ -170,7 +185,13 @@
                     <div class="table-modal-header">
                       <div class="modal-about">
                         <div class="fw-bold p-t-10 font-17">
-                          Add New Head Of Deparment</div>
+                          <div *ngIf='hodId == 0'>
+                            Add New Head Of Deparment
+                          </div>
+                          <div *ngIf='hodId != 0'>
+                            Update Head Of Deparment
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </h4>
